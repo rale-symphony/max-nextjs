@@ -1,5 +1,5 @@
 name: Third worflow
-on: push
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,5 +15,5 @@ jobs:
         with:
           version: 9.12.3
       - name: Install dependencies
-        # working-directory: ../../
+        # working-directory: ./
         run: pnpm install
