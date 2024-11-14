@@ -15,6 +15,5 @@ jobs:
         with:
           version: 9.12.3
       - name: Install dependencies
-        working-directory: ../../
-        run: echo ${{ github.workspace }}
-        # run: pnpm install
+        # working-directory: ../../
+        run: pnpm install
