@@ -1,8 +1,21 @@
 name: Second workflow
-on: push
+# on: push
+# jobs:
+#   echo:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Echo
+#         run: echo ${{ github.event_name }}
+on:
+  push:
+    branches:
+      - dev
+  schedule:
+    - cron: '*/2 * * * *'
+  workflow_dispatch:
 jobs:
-  echo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Echo
-        run: echo ${{ github.event_name }}
+      echo:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Echo
+            run: echo ${{ github.event_name }}
