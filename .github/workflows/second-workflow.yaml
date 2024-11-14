@@ -1,11 +1,4 @@
 name: Second workflow
-# on: push
-# jobs:
-#   echo:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Echo
-#         run: echo ${{ github.event_name }}
 on:
   # push:
   #   branches:
