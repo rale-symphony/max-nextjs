@@ -3,6 +3,8 @@ on:
   # push:
   #   branches:
   #     - dev
+  #   paths-ignore:
+  #     - 'docs/**'
   # schedule:
   #   - cron: '*/2 * * * *'
   workflow_dispatch:
