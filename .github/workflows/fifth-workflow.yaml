@@ -24,5 +24,5 @@ jobs:
           MY_OVERWRITTEN_VAR: "This is a overwritten secret from step"
         run: |
           echo "Variable is ${{ vars.MY_VAR }}"
-          echo "Variable is ${{ env.MY_VAR }}"
+          echo "Variable is $MY_VAR"
           echo "Overwrriten variable is ${{ env.MY_OVERWRITTEN_VAR }}"
