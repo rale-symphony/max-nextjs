@@ -1,8 +1,13 @@
 name: Contexts
 on: [push, workflow_dispatch]
+env: 
+  MY_VAR: "This is a secret"
+  MY_OVERWRITTEN_VAR: "This is a overwritten secret from workflow"
 jobs:
   echo:
     runs-on: ubuntu-latest
+    env:
+      MY_OVERWRITTEN_VAR: "This is a overwritten secret from job"
     steps:
       - name: Display information about the GitHub context
         run: |
@@ -15,5 +20,9 @@ jobs:
           echo "RunID is ${{ github.run_id }}"
           echo "Run number is ${{ github.run_number }}"
       - name: Retrieve vars
+        env:
+          MY_OVERWRITTEN_VAR: "This is a overwritten secret from step"
         run: |
           echo "Variable is ${{ vars.MY_VAR }}"
+          echo "Variable is ${{ env.MY_VAR }}"
+          echo "Overwrriten variable is ${{ env.MY_OVERWRITTEN_VAR }}"
