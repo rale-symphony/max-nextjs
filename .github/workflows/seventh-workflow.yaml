@@ -8,6 +8,8 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
+      - name: "Slip for 20 seconds"
+        run: sleep 20
       - name: "Failing step"
         run: exit 1
       - name: "I will be skipped"
