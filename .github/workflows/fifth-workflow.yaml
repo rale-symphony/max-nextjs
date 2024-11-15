@@ -1,6 +1,8 @@
 name: Contexts
-on: [push, workflow_dispatch]
-env: 
+on: 
+  # push:
+  workflow_dispatch:
+env:
   MY_VAR: "This is a secret"
   MY_OVERWRITTEN_VAR: "This is a overwritten secret from workflow"
 jobs:
