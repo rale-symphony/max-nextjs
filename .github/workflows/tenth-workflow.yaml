@@ -11,16 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       build-status: ${{ steps.build.outputs.status }}
+      dummy1: ${{ steps.dummy.outputs.dummy1 }}
+      dummy2: ${{ steps.dummy.outputs.dummy2 }}
     steps:
       - name: "Print GITHUB_OUTPUT path"
         run: echo "GITHUB_OUTPUT=$GITHUB_OUTPUT"
       - name: "Build"
         id: build
         run: echo "status=${{ inputs.build-status }}" >> "$GITHUB_OUTPUT"
+      - name: "Dummy output"
+        id: dummy
+        run: |
+          # old way to set output, each step have separate output
+          echo "::set-output name=dummy::DummyVal1"
+          echo "dummy2=DummyVal2" >> "$GITHUB_OUTPUT"
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
     if: ${{ needs.build.outputs.build-status == 'success' }}
     steps:
       - name: "Deploy"
-        run: echo "Deploying"
+        run: echo "Deploying, ${{ needs.build.outputs.dummy1 }} ${{ needs.build.outputs.dummy2 }}"
