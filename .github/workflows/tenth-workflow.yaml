@@ -22,8 +22,7 @@ jobs:
       - name: "Dummy output"
         id: dummy
         run: |
-          # old way to set output, each step have separate output
-          echo "::set-output name=dummy::DummyVal1"
+          echo "dummy1=DummyVal1" >> "$GITHUB_OUTPUT"
           echo "dummy2=DummyVal2" >> "$GITHUB_OUTPUT"
   deploy:
     runs-on: ubuntu-latest
