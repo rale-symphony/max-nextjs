@@ -10,6 +10,12 @@ jobs:
       matrix:
         node-version: [18.x, 20.x, 22.x]
         os: [ubuntu-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            node-version: 16.x
+          - os: ubuntu-latest
+            node-version: 22.x
+            tag: experimental
     steps:
       - name: "Setup Node.js"
         uses: actions/setup-node@v4
